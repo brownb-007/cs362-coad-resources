@@ -9,7 +9,10 @@ RSpec.describe Organization, type: :model do
   end
 
   describe "attributes" do
-
+    it "has an email" do
+      expect(organization).to respond_to(:email)
+    end
+    
   end
   
 

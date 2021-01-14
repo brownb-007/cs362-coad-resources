@@ -13,7 +13,9 @@ RSpec.describe Organization, type: :model do
       expect(organization).to respond_to(:email)
     end
 
-
+    it "has a name" do
+      expect(organization).to respond_to(:name) 
+    end
     
   end
   

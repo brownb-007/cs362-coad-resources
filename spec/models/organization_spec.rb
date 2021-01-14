@@ -4,7 +4,7 @@ RSpec.describe Organization, type: :model do
 
   let(:organization) { Organization.new }
 
-  it "instantiate an organization object" do
+  it "exists" do
     organization
   end
 

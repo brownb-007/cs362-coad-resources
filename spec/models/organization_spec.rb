@@ -25,6 +25,9 @@ RSpec.describe Organization, type: :model do
       expect(organization).to respond_to(:status) 
     end
     
+    it "has a primary name" do
+      expect(organization).to respond_to(:primary_name) 
+    end
     
     
   end

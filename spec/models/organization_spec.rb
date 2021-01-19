@@ -36,8 +36,12 @@ RSpec.describe Organization, type: :model do
     it "has a secondary phone number" do
       expect(organization).to respond_to(:secondary_phone) 
     end
-    
-    
+  end
+
+  describe "relationships" do
+    it "has many users" do
+      expect(organization).to have_many(:users)
+    end
     
   end
   

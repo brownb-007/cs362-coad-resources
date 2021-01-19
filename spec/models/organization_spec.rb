@@ -4,58 +4,26 @@ RSpec.describe Organization, type: :model do
 
   let(:organization) { Organization.new }
 
-  it "exists" do
-    organization
-  end
-
   describe "attributes" do
-    it "has an email" do
-      expect(organization).to respond_to(:email)
-    end
-
-    it "has a name" do
-      expect(organization).to respond_to(:name) 
-    end
-
-    it "has a phone number" do
-      expect(organization).to respond_to(:phone) 
-    end
-
-    it "has a status" do
-      expect(organization).to respond_to(:status) 
-    end
-    
-    it "has a primary name" do
-      expect(organization).to respond_to(:primary_name) 
-    end
-    
-    it "has a secondary name" do
-      expect(organization).to respond_to(:secondary_name)
-    end
-
-    it "has a secondary phone number" do
-      expect(organization).to respond_to(:secondary_phone) 
-    end
+    it { is_expected.to respond_to(:name) }
+    it { is_expected.to respond_to(:status) }
+    it { is_expected.to respond_to(:phone) }
+    it { is_expected.to respond_to(:email) }
+    it { is_expected.to respond_to(:description) }
+    it { is_expected.to respond_to(:rejection_reason) }
+    it { is_expected.to respond_to(:liability_insurance) }
+    it { is_expected.to respond_to(:primary_name) }
+    it { is_expected.to respond_to(:secondary_name) }
+    it { is_expected.to respond_to(:secondary_phone) }
+    it { is_expected.to respond_to(:title) }
+    it { is_expected.to respond_to(:transportation) }
   end
 
   describe "asscociations" do
-    it "has many users" do
-      expect(organization).to have_many(:users)
-    end
-
-    it "has many tickets" do
-      expect(organization).to have_many(:tickets) 
-    end
     
-    it "has and belongs to many resource categories" do
-      expect(organization).to have_and_belong_to_many(:resource_categories) 
-    end
   end
 
   describe "validations" do
-    it "validates length of email" do
-      expect(organization).to validate_length_of(:email).is_at_least(1).is_at_most(255).on(:create)
-    end
     
   end
   

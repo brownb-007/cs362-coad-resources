@@ -4,14 +4,8 @@ RSpec.describe Region, type: :model do
 
   let(:region) { Region.new }
 
-  it "exists" do
-    region
-  end
+  it { is_expected.to respond_to(:name) }
 
-  it "has a name" do
-    expect(region).to respond_to(:name)
-  end
-  
   describe "validations" do
     it "validates the length of name" do
       expect(region).to validate_length_of(:name).is_at_least(1).is_at_most(255).on(:create)

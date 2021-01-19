@@ -4,7 +4,7 @@ RSpec.describe Organization, type: :model do
 
   let(:organization) { Organization.new }
 
-  describe "attributes" do
+  describe "Attributes" do
     it { is_expected.to respond_to(:name) }
     it { is_expected.to respond_to(:status) }
     it { is_expected.to respond_to(:phone) }
@@ -19,14 +19,14 @@ RSpec.describe Organization, type: :model do
     it { is_expected.to respond_to(:transportation) }
   end
 
-  describe "asscociations" do
+  describe "Asscociations" do
     it { is_expected.to have_many(:users) }
     it { is_expected.to have_many(:tickets) }
 		it { is_expected.to have_and_belong_to_many(:resource_categories) }
   end
 
-  describe "validations" do
-    
+  describe "Validations" do
+    it { is_expected.to validate_presence_of(:email) }
   end
   
 

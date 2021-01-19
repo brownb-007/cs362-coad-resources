@@ -50,7 +50,12 @@ RSpec.describe Organization, type: :model do
     it "has and belongs to many resource categories" do
       expect(organization).to have_and_belong_to_many(:resource_categories) 
     end
-    
+  end
+
+  describe "validations" do
+    it "validates length of email" do
+      expect(organization).to validate_length_of(:email).is_at_least(1).is_at_most(255).on(:create)
+    end
     
   end
   

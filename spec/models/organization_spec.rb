@@ -27,6 +27,12 @@ RSpec.describe Organization, type: :model do
 
   describe "Validations" do
     it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_presence_of(:name) }
+		it { is_expected.to validate_presence_of(:phone) }
+		it { is_expected.to validate_presence_of(:status) }
+		it { is_expected.to validate_presence_of(:primary_name) }
+		it { is_expected.to validate_presence_of(:secondary_name) }
+		it { is_expected.to validate_presence_of(:secondary_phone) }
   end
   
 

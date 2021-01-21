@@ -6,11 +6,12 @@ RSpec.describe Region, type: :model do
 
   it { is_expected.to respond_to(:name) }
 
-  describe "validations" do
-    it "validates the length of name" do
-      expect(region).to validate_length_of(:name).is_at_least(1).is_at_most(255).on(:create)
-    end
+  
 
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_length_of(:name).is_at_least(1).is_at_most(255).on(:create) }
+    it { is_expected.to validate_uniqueness_of(:name).case_insensitive() }
   end
 
 end

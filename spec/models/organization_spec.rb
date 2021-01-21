@@ -35,6 +35,7 @@ RSpec.describe Organization, type: :model do
     it { is_expected.to validate_presence_of(:secondary_phone) }
     it { is_expected.to validate_length_of(:email).is_at_least(1).is_at_most(255).on(:create) }
     it { is_expected.to allow_value("fake@mail.com").for(:email) }
+    it { is_expected.to_not allow_value("mail.com", "fake").for(:email) }
   end
   
 

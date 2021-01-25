@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Organization, type: :model do
 
-  let(:organization) { Organization.new }
+  let(:organization) { build(:organization) }
 
   describe "Attributes" do
     it { is_expected.to respond_to(:name) }
@@ -41,6 +41,13 @@ RSpec.describe Organization, type: :model do
     it { is_expected.to validate_uniqueness_of(:name).case_insensitive() }
     it { is_expected.to validate_length_of(:description).is_at_most(1020).on(:create) }
   end
-  
+
+
+  describe "Methods" do
+    it "has a string representation of name" do
+      organization = build(:organization, name: 'Fake')
+      expect(organization.to_s).to eq('Fake')  
+    end
+  end
 
 end

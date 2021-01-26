@@ -44,10 +44,26 @@ RSpec.describe Organization, type: :model do
 
 
   describe "Methods" do
-    it "has a string representation of name" do
+    it "#to_s, has a string representation of name" do
       organization = build(:organization, name: 'Fake')
       expect(organization.to_s).to eq('Fake')
     end
+
+    it "#approve, is an approved organization" do
+      organization = build(:organization, :approved)
+      expect(organization.approve).to  be_truthy
+    end
+
+    it "#reject, is a rejected organization" do
+      organization = build(:organization, :rejected)
+      expect(organization.reject).to  be_truthy
+    end
+
+    it "#set_default_status, is a submitted organization" do
+      organization = build(:organization, :submitted)
+      expect(organization.set_default_status).to  be_truthy
+    end
+
   end
 
 end

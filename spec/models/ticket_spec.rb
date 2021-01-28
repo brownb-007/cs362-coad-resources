@@ -13,7 +13,9 @@ RSpec.describe Ticket, type: :model do
   end
 
   describe "Associations" do
-    
+    it { is_expected.to belong_to(:region) }
+    it { is_expected.to belong_to(:resource_category) }
+    it { is_expected.to belong_to(:organization) }
   end
 
   describe "Validations" do

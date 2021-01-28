@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Region, type: :model do
-  let(:region) { Region.new }
+  let(:region) { build(:region) }
 
   describe "Attributes" do
     it { is_expected.to respond_to(:name) }
@@ -24,9 +24,8 @@ RSpec.describe Region, type: :model do
       expect(region.to_s).to  eq("Fake")
     end
     
+    it "is expected to find or create a region with the name unspecified" do
+      expect(Region.unspecified.name).to eq('Unspecified')
+    end
   end
-  
-
-  
-
 end

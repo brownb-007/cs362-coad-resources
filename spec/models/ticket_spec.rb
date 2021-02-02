@@ -15,7 +15,7 @@ RSpec.describe Ticket, type: :model do
   describe "Associations" do
     it { is_expected.to belong_to(:region) }
     it { is_expected.to belong_to(:resource_category) }
-    #TODO optional? it { is_expected.to belong_to(:organization) }
+    it { is_expected.to belong_to(:organization).optional }
   end
 
   describe "Validations" do
@@ -23,6 +23,10 @@ RSpec.describe Ticket, type: :model do
     it { is_expected.to validate_presence_of(:phone) }
     it { is_expected.to validate_length_of(:name).is_at_least(1).is_at_most(255).on(:create) }
     it { is_expected.to validate_length_of(:description).is_at_most(1020).on(:create) }
+
+    it "has a valid phone number" do
+      
+    end
   end
 
 end

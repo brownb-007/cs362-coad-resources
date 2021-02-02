@@ -24,7 +24,7 @@ RSpec.describe Region, type: :model do
       expect(region.to_s).to  eq("Fake")
     end
     
-    it "is expected to find or create a region with the name unspecified" do
+    it "is expected to find or create a region with unspecified as a name" do
       expect(Region.unspecified.name).to eq('Unspecified')
     end
   end

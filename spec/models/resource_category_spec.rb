@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ResourceCategory, type: :model do
-  let(:resource_category) { ResourceCategory.new }
+  let(:resource_category) { build(:resource_category) }
 
   describe "Attributes" do
     it { is_expected.to respond_to(:name) }
@@ -19,6 +19,7 @@ RSpec.describe ResourceCategory, type: :model do
     it { is_expected.to validate_uniqueness_of(:name).case_insensitive() }
   end
 
-  
-
+  describe "Methods" do
+    
+  end
 end

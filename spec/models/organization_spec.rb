@@ -63,7 +63,6 @@ RSpec.describe Organization, type: :model do
       organization = build(:organization, :submitted)
       expect(organization.set_default_status).to  be_truthy
     end
-
   end
-
+  
 end

@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:name) { |n| "resource_category #{n}"}
 
     trait :active do
-      actvie { true }
+      active { true }
     end
 
     trait :inactive do 

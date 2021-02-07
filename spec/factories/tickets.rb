@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :ticket do 
     name { "fake ticket"}
     description { 'fake ticket description' }
-    phone { '+1443332111' }
+    phone { '1+222-222-2222' }
     closed { false }
     closed_at { '' }
     region

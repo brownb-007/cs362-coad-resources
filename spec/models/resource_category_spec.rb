@@ -23,8 +23,7 @@ RSpec.describe ResourceCategory, type: :model do
 
   describe "Methods" do
     it "@to_s, has a string representation of name" do
-      resource_category = build(:resource_category, name: "Fake")
-      expect(resource_category.to_s).to  eq("Fake")
+      expect(build(:resource_category, name: "Fake").to_s).to  eq("Fake")
     end
 
     it "is expected to find or create a resource_category with unspecified as a name" do

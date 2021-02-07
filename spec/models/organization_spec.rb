@@ -28,10 +28,10 @@ RSpec.describe Organization, type: :model do
   describe "Validations" do
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_presence_of(:name) }
-		it { is_expected.to validate_presence_of(:phone) }
-		it { is_expected.to validate_presence_of(:status) }
-		it { is_expected.to validate_presence_of(:primary_name) }
-		it { is_expected.to validate_presence_of(:secondary_name) }
+    it { is_expected.to validate_presence_of(:phone) }
+    it { is_expected.to validate_presence_of(:status) }
+    it { is_expected.to validate_presence_of(:primary_name) }
+    it { is_expected.to validate_presence_of(:secondary_name) }
     it { is_expected.to validate_presence_of(:secondary_phone) }
     it { is_expected.to validate_length_of(:email).is_at_least(1).is_at_most(255).on(:create) }
     it { is_expected.to allow_value("fake@mail.com").for(:email) }
@@ -44,25 +44,24 @@ RSpec.describe Organization, type: :model do
 
 
   describe "Methods" do
-    it "#to_s, has a string representation of name" do
+    it "@to_s, has a string representation of name" do
       organization = build(:organization, name: 'Fake')
       expect(organization.to_s).to eq('Fake')
     end
 
-    it "#approve, is an approved organization" do
+    it "@approve, is an approved organization" do
       organization = build(:organization, :approved)
       expect(organization.approve).to  be_truthy
     end
 
-    it "#reject, is a rejected organization" do
+    it "@reject, is a rejected organization" do
       organization = build(:organization, :rejected)
       expect(organization.reject).to  be_truthy
     end
 
-    it "#set_default_status, is a submitted organization" do
+    it "@set_default_status, is a submitted organization" do
       organization = build(:organization, :submitted)
       expect(organization.set_default_status).to  be_truthy
     end
   end
-  
 end

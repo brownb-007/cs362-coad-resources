@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe ResourceCategory, type: :model do
   let(:resource_category) { build(:resource_category) }
-  let(:resource_category_active) { build(:resource_category, :active) }
-  let(:resource_category_inactive) { build(:resource_category, :inactive) }
+  let(:resource_category_active) { create(:resource_category, :active) }
+  let(:resource_category_inactive) { create(:resource_category, :inactive) }
 
   describe "Attributes" do
     it { is_expected.to respond_to(:name) }
@@ -39,13 +39,29 @@ RSpec.describe ResourceCategory, type: :model do
 
       it "@deactivate has a deactivated activity status" do
         expect(resource_category.deactivate).to be_truthy
+        expect(resource_category.active).to be_falsey
       end
 
-      it "@inactive detemines if the resource category is active or inactive" do 
+      it "@inactive? detemines if the resource category is active or inactive" do 
         expect(resource_category.inactive?).to be_falsey
       end
     end
   end
 
+
+  describe "Scopes" do
+
+    it "looks for all of the active resource_categories" do
+      expect(ResourceCategory.active).to include(resource_category_active)
+      expect(ResourceCategory.active).to_not include(resource_category_inactive)
+    end
+
+    it "looks for all of the inactive resource_categories" do
+      expect(ResourceCategory.inactive).to include(resource_category_inactive)
+      expect(ResourceCategory.inactive).to_not include(resource_category_active)
+    end
+  end
   
+
+
 end

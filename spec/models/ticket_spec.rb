@@ -5,8 +5,8 @@ RSpec.describe Ticket, type: :model do
   let(:ticket) { create(:ticket) }
   let(:closed_ticket) { create(:ticket, :closed_ticket) }
   let(:open_ticket) { create(:ticket, :open_ticket) } 
-  let(:ticket_has_open_organization) { create(:ticket, :open_ticket, :has_organization) }
-  let(:ticket_has_closed_organization) { create(:ticket, :closed_ticket, :has_organization) }
+  let(:ticket_is_open_has_organization) { create(:ticket, :open_ticket, :has_organization) }
+  let(:ticket_is_closed_has_organization) { create(:ticket, :closed_ticket, :has_organization) }
 
   describe "Attributes" do
     it { is_expected.to respond_to(:name) }
@@ -39,9 +39,8 @@ RSpec.describe Ticket, type: :model do
   describe "Methods" do
 
     describe "@to_s" do 
-      it 'has a string representation of ticket' do
-        temp_tick = build(:ticket, id: '98765')
-        expect(temp_tick.to_s).to eq('Ticket ' + '98765') 
+      it "has a string representation of ticket" do
+        expect(build(:ticket, id: '98765').to_s).to eq("Ticket " + '98765') 
       end
     end
 
@@ -65,8 +64,37 @@ RSpec.describe Ticket, type: :model do
   end
 
   describe "Scopes" do
-    
-  end
-  
+    it "is open tickets" do
+      expect(Ticket.open).to include(open_ticket)
+      expect(Ticket.open).to_not include(closed_ticket)
+    end
 
+    it "is a closed tickets" do
+      expect(Ticket.closed).to include(closed_ticket)
+      expect(Ticket.closed).to_not include(open_ticket)
+    end
+    
+    it "is all organizations tickets that are open rather than just only open without an organization" do
+      expect(Ticket.all_organization).to include(ticket_is_open_has_organization)
+      expect(Ticket.all_organization).to_not include(open_ticket)
+    end
+
+    it "is an individual organization ticket that is closed" do
+      expect(Ticket.closed_organization(ticket_is_closed_has_organization.organization.id)).to include(ticket_is_closed_has_organization)
+      expect(Ticket.closed_organization(ticket_is_closed_has_organization.organization.id)).to_not include(ticket_is_open_has_organization)
+    end
+
+    it "is an individual organization ticket that is open" do
+      expect(Ticket.organization(ticket_is_open_has_organization.organization.id)).to include(ticket_is_open_has_organization)
+      expect(Ticket.organization(ticket_is_open_has_organization.organization.id)).to_not include(ticket_is_closed_has_organization)
+    end
+
+    it "is the region a ticket belongs to" do
+      expect(Ticket.region(ticket.region.id)).to include(ticket) 
+    end
+
+    it "is the resource_category a ticket belongs to" do
+      expect(Ticket.resource_category(ticket.resource_category.id)).to include(ticket) 
+    end 
+  end
 end

@@ -44,7 +44,6 @@ RSpec.describe Organization, type: :model do
 
 
   describe "Methods" do
-
     describe "@to_s" do
       it "has a string representation of name" do
         expect(build(:organization, name: 'Fake').to_s).to eq('Fake')

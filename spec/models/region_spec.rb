@@ -19,9 +19,11 @@ RSpec.describe Region, type: :model do
   end
 
   describe "Methods" do
-    it "@to_s, has a string representation of name" do
-      region = build(:region, name: "Fake")
-      expect(region.to_s).to  eq("Fake")
+    describe "@to_s" do
+      it "has a string representation of name" do
+        region = build(:region, name: "Fake")
+        expect(region.to_s).to  eq("Fake")
+      end
     end
     
     it "is expected to find or create a region with unspecified as a name" do

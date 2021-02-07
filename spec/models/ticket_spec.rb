@@ -28,12 +28,10 @@ RSpec.describe Ticket, type: :model do
     it { is_expected.to validate_length_of(:name).is_at_least(1).is_at_most(255).on(:create) }
     it { is_expected.to validate_length_of(:description).is_at_most(1020).on(:create) }
 
-    # it "has a valid phone number" do
-    #   let(:valid_ticket_number) { create(:ticket, phone = "+311012341234") }
-    #   let(:invalid_ticket_number) { create(:ticket, phone = "12345") }
-    #   expect(:valid_ticket_number.save!).to 
-    #   expect(:invalid_ticket_number.save!).to 
-    # end
+    it "has a valid phone number" do
+      expect(build(:ticket, phone: '1+222-222-2222').valid!).to be_truthy
+      expect(build(:ticket, phone: '12345').valid?).to be_falsey
+    end
   end
 
   describe "Methods" do

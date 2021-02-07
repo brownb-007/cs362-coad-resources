@@ -29,7 +29,7 @@ RSpec.describe Ticket, type: :model do
     it { is_expected.to validate_length_of(:description).is_at_most(1020).on(:create) }
 
     it "has a valid phone number" do
-      expect(build(:ticket, phone: '1+222-222-2222').valid!).to be_truthy
+      expect(build(:ticket, phone: '1+222-222-2222')).to be_truthy
       expect(build(:ticket, phone: '12345').valid?).to be_falsey
     end
   end

@@ -22,7 +22,6 @@ RSpec.describe ResourceCategory, type: :model do
   end
 
   describe "Methods" do
-
     it "@to_s, has a string representation of name" do
       resource_category = build(:resource_category, name: "Fake")
       expect(resource_category.to_s).to  eq("Fake")
@@ -50,7 +49,6 @@ RSpec.describe ResourceCategory, type: :model do
 
 
   describe "Scopes" do
-
     it "looks for all of the active resource_categories" do
       expect(ResourceCategory.active).to include(resource_category_active)
       expect(ResourceCategory.active).to_not include(resource_category_inactive)
@@ -61,7 +59,4 @@ RSpec.describe ResourceCategory, type: :model do
       expect(ResourceCategory.inactive).to_not include(resource_category_active)
     end
   end
-  
-
-
 end

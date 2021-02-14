@@ -30,6 +30,22 @@ RSpec.describe RegionsController, type: :controller do
         expect(response).to  redirect_to(new_user_session_url)
       end 
     end
+
+    describe "#update" do
+      it "redirects to the sign_in screen" do
+        put :update, params: {id: 'fake'}
+        expect(response).to  redirect_to(new_user_session_url)
+      end 
+    end
+
+    describe "#destroy" do
+      it "redirects to the sign_in screen" do
+        delete :destroy, params: {id: 'fake'}
+        expect(response).to  redirect_to(new_user_session_url)
+      end 
+    end
   end
+
+  
   
 end

@@ -12,7 +12,7 @@ RSpec.describe RegionsController, type: :controller do
 
     describe "#show" do
       it "redirects to the sign_in screen" do
-        get :show, params: {id: 'fake'}
+        get :show, params: { id: 'fake' }
         expect(response).to  redirect_to(new_user_session_url)
       end 
     end
@@ -26,7 +26,7 @@ RSpec.describe RegionsController, type: :controller do
 
     describe "#edit" do
       it "redirects to the sign_in screen" do
-        get :edit, params: {id: 'fake'}
+        get :edit, params: { id: 'fake' } 
         expect(response).to  redirect_to(new_user_session_url)
       end 
     end
@@ -40,14 +40,14 @@ RSpec.describe RegionsController, type: :controller do
 
     describe "#update" do
       it "redirects to the sign_in screen" do
-        put :update, params: {id: 'fake'}
+        put :update, params: { id: 'fake' }
         expect(response).to  redirect_to(new_user_session_url)
       end 
     end
 
     describe "#destroy" do
       it "redirects to the sign_in screen" do
-        delete :destroy, params: {id: 'fake'}
+        delete :destroy, params: { id: 'fake' }
         expect(response).to  redirect_to(new_user_session_url)
       end 
     end
@@ -63,25 +63,25 @@ RSpec.describe RegionsController, type: :controller do
     describe "dashboard redirection" do
       it "redirects user to the dashboard" do
         get :index
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
         get :show, params: {id: 'fake'}
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
         get :new
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
         get :edit, params: {id: 'fake'}
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
         post :create
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
         put :update, params: {id: 'fake'}
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
         delete :destroy, params: {id: 'fake'}
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
       end
     end
   end
 
   context "an admin user" do
-    let(:region) {create(:region)}
+    let(:region) { create(:region) }
     before do
       admin_user = create(:user, :admin)
       allow(request.env['warden']).to receive(:authenticate!).and_return(admin_user)
@@ -97,7 +97,7 @@ RSpec.describe RegionsController, type: :controller do
 
     describe "#show" do
       it "gets show" do
-        get :show, params: {id: region.id}
+        get :show, params: { id: region.id }
         expect(response).to  be_successful
       end 
     end
@@ -111,21 +111,21 @@ RSpec.describe RegionsController, type: :controller do
 
     describe "#create" do
       it "posts a created region" do
-        post :create, params: {region: attributes_for(:region)}
+        post :create, params: { region: attributes_for(:region) }
         expect(response).to  redirect_to(regions_path)
       end 
     end
 
     describe "#update" do
       it "puts an updated region" do
-        put :update, params: {id: region.id, region: attributes_for(:region)}
+        put :update, params: { id: region.id, region: attributes_for(:region) }
         expect(response).to  redirect_to(region_path(region))
       end 
     end
 
     describe "#destroy" do
       it "deletes a region" do
-        delete :destroy, params: {id: region.id}
+        delete :destroy, params: { id: region.id }
         expect(response).to  redirect_to(regions_path)
       end 
     end

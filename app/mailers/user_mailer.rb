@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     @to = params[:to]
     @new_organization = params[:new_organization]
     if Rails.env.production? || Rails.env.test?
-      mail(to: @to, subject: 'New Organization Application Pending')
+      mail(to: @to, subject: 'New Organization Application Pending') if @to.any?
     else
       false
     end

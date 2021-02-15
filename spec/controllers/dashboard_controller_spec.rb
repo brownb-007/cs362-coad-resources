@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe DashboardController, type: :controller do
+  
   context "unauthenticated users" do
     describe "#index" do
       it "gets the index of the dashboard" do
@@ -39,5 +40,4 @@ RSpec.describe DashboardController, type: :controller do
       end 
     end
   end
-  
 end

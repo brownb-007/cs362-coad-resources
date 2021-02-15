@@ -72,7 +72,7 @@ RSpec.describe OrganizationsController, type: :controller do
     describe "#create" do
       it "post create" do
         post :create, params:{ id: organization.id, organization: attributes_for(:organization) }
-        expect(response).to  redirect_to(organization_path(organization))
+        expect(response).to  redirect_to(dashboard_url)
       end 
     end
 

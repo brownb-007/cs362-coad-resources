@@ -6,7 +6,7 @@ RSpec.describe TicketsController, type: :controller do
     describe "#new" do
       it "adds a new ticket" do
         get :new
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end
     end
   end
@@ -22,28 +22,28 @@ RSpec.describe TicketsController, type: :controller do
     describe "#new" do
       it "adds a new ticket" do
         get :new
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end
     end
 
     describe "#release" do
       it "release the ticket" do
         post :release, params: { id: ticket.id }
-        expect(response).to  redirect_to(dashboard_path)
+        expect(response).to redirect_to(dashboard_path)
       end
     end
 
     describe "#close" do
       it "close the ticket" do
         patch :close, params: { id: ticket.id }
-        expect(response).to  redirect_to(dashboard_path)
+        expect(response).to redirect_to(dashboard_path)
       end
     end
 
     describe "#capture" do
       it "capture the ticket" do
         post :capture, params: { id: ticket.id }
-        expect(response).to  redirect_to(dashboard_path)
+        expect(response).to redirect_to(dashboard_path)
       end
     end
   end
@@ -59,7 +59,7 @@ RSpec.describe TicketsController, type: :controller do
     describe "#show" do
       it "gets show" do
         get :show, params: { id: ticket.id }
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end
     end
     
@@ -67,40 +67,37 @@ RSpec.describe TicketsController, type: :controller do
     describe "#new" do
       it "adds a new ticket" do
         get :new
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end
     end
 
     describe "#release" do
       it "release the ticket" do
         post :release, params: { id: ticket.id }
-        expect(response).to  redirect_to(dashboard_path)
+        expect(response).to redirect_to(dashboard_path)
       end
     end
 
     describe "#close" do
       it "close the ticket" do
         patch :close, params: { id: ticket.id }
-        expect(response).to  redirect_to(dashboard_path << "#tickets:open")
+        expect(response).to redirect_to(dashboard_path << "#tickets:open")
       end
     end
 
     describe "#capture" do
       it "capture the ticket" do
         post :capture, params: { id: ticket.id }
-        expect(response).to  redirect_to(dashboard_path)
+        expect(response).to redirect_to(dashboard_path)
       end
     end
 
     describe "#destroy" do
       it "deletes a ticket" do
         delete :destroy, params: { id: ticket.id }
-        expect(response).to  redirect_to(dashboard_path << "#tickets")
+        expect(response).to redirect_to(dashboard_path << "#tickets")
       end
-      
-      
-    end
-    
+    end   
   end
   
   

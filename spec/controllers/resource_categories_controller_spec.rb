@@ -1,54 +1,54 @@
 require 'rails_helper'
 
 RSpec.describe ResourceCategoriesController, type: :controller do
-  
+
   context "unauthenticated users" do
     describe "#index" do
       it "redirects to the sign_in screen" do
         get :index
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
 
     describe "#new" do
       it "redirects to the sign_in screen" do
         get :new
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
 
     describe "#create" do
       it "redirects to the sign_in screen" do
         post :create
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
 
     describe "#update" do
       it "redirects to the sign_in screen" do
         put :update, params: {id: 'fake'}
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
 
     describe "#activate" do
       it "redirects to the sign_in screen" do
         patch :activate, params: {id: 'fake'}
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
 
     describe "#deactivate" do
       it "redirects to the sign_in screen" do
         patch :deactivate, params: {id: 'fake'}
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
 
     describe "#destroy" do
       it "redirects to the sign_in screen" do
         delete :destroy, params: {id: 'fake'}
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
   end
@@ -91,56 +91,56 @@ RSpec.describe ResourceCategoriesController, type: :controller do
     describe "#index" do
       it "gets the index" do
         get :index
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end 
     end
 
     describe "#show" do
       it "gets show" do
         get :show, params: { id: resource_category.id }
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end 
     end
 
     describe "#new" do
       it "gets new" do
         get :new
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end 
     end
 
     describe "#create" do
       it "posts a created resource_category" do
         post :create, params: { resource_category: attributes_for(:resource_category) }
-        expect(response).to  redirect_to(resource_categories_path)
+        expect(response).to redirect_to(resource_categories_path)
       end 
     end
 
     describe "#update" do
       it "puts an updated resource_category" do
         put :update, params: { id: resource_category.id, resource_category: attributes_for(:resource_category) }
-        expect(response).to  redirect_to(resource_category_path(resource_category))
+        expect(response).to redirect_to(resource_category_path(resource_category))
       end 
     end
 
     describe "#activate" do
       it "patches an activated resource_category" do
         patch :activate, params: { id: resource_category.id }
-        expect(response).to  redirect_to(resource_category_path(resource_category))
+        expect(response).to redirect_to(resource_category_path(resource_category))
       end 
     end
 
     describe "#deactivate" do
       it "puts an deactivated resource_category" do
         put :deactivate, params: { id: resource_category.id }
-        expect(response).to  redirect_to(resource_category_path(resource_category))
+        expect(response).to redirect_to(resource_category_path(resource_category))
       end 
     end
 
     describe "#destroy" do
       it "deletes a resource_category" do
         delete :destroy, params: { id: resource_category.id }
-        expect(response).to  redirect_to(resource_categories_path)
+        expect(response).to redirect_to(resource_categories_path)
       end 
     end
   end

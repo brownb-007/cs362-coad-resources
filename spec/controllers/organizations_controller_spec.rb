@@ -6,42 +6,42 @@ RSpec.describe OrganizationsController, type: :controller do
     describe "#index" do
       it "redirects to the sign_in screen" do
         get :index
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
 
     describe "#new" do
       it "redirects to the sign_in screen" do
         get :new
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
 
     describe "#create" do
       it "redirects to the sign_in screen" do
         post :create
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
 
     describe "#update" do
       it "redirects to the sign_in screen" do
         put :update, params: { id: 'fake' }
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
 
     describe "#approve" do
       it "redirects to the sign_in screen" do
         post :approve, params: { id: 'fake' }
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
 
     describe "#reject" do
       it "redirects to the sign_in screen" do
         post :reject, params: { id: 'fake' }
-        expect(response).to  redirect_to(new_user_session_url)
+        expect(response).to redirect_to(new_user_session_url)
       end 
     end
 
@@ -58,42 +58,42 @@ RSpec.describe OrganizationsController, type: :controller do
     describe "#index" do
       it "get index" do
         get :index
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end 
     end
 
     describe "#new" do
       it "get new" do
         get :new
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end 
     end
 
     describe "#create" do
       it "post create" do
         post :create, params:{ organization: attributes_for(:organization) }
-        expect(response).to  redirect_to('/organization_application_submitted')
+        expect(response).to redirect_to('/organization_application_submitted')
       end
     end
 
     describe "#update" do
       it "put update" do
         put :update, params:{ id: organization.id, organization: attributes_for(:organization) }
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
       end 
     end
 
     describe "#approve" do
       it "post approve" do
         post :approve, params: { id: organization.id }
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
       end 
     end
 
     describe "#reject" do
       it "post reject" do
         post :reject, params: { id: organization.id }
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
       end 
     end
   end
@@ -109,42 +109,42 @@ RSpec.describe OrganizationsController, type: :controller do
     describe "#index" do
       it "get index" do
         get :index
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end 
     end
 
     describe "#new" do
       it "get new" do
         get :new
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
       end 
     end
 
     describe "#create" do
       it "post create" do
         post :create, params: { organization: attributes_for(:organization) }
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
       end 
     end
 
     describe "#update" do
       it "put update" do
         put :update, params:{ id: organization.id, organization: attributes_for(:organization) }
-        expect(response).to  redirect_to(dashboard_url)
+        expect(response).to redirect_to(dashboard_url)
       end 
     end
 
     describe "#approve" do
       it "post approve" do
         post :approve, params: { id: organization.id }
-        expect(response).to  redirect_to(organizations_path)
+        expect(response).to redirect_to(organizations_path)
       end 
     end
 
     describe "#reject" do
       it "post reject" do
         post :reject, params: { id: organization.id, organization: {rejection_reason: 'fake'} }
-        expect(response).to  redirect_to(organizations_path)
+        expect(response).to redirect_to(organizations_path)
       end 
     end
   end

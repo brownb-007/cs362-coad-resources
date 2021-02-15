@@ -6,7 +6,7 @@ RSpec.describe StaticPagesController, type: :controller do
     describe "#index" do
       it "gets the index of the dashboard" do
         get :index
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end
     end
   end
@@ -21,7 +21,7 @@ RSpec.describe StaticPagesController, type: :controller do
     describe "#index" do
       it "get index" do
         get :index
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end 
     end
   end
@@ -36,7 +36,7 @@ RSpec.describe StaticPagesController, type: :controller do
     describe "#index" do
       it "get index" do
         get :index
-        expect(response).to  be_successful
+        expect(response).to be_successful
       end 
     end
   end

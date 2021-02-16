@@ -44,7 +44,6 @@ RSpec.describe OrganizationsController, type: :controller do
         expect(response).to redirect_to(new_user_session_url)
       end 
     end
-
   end
 
   context "an organization user" do

@@ -11,5 +11,4 @@ module DashboardHelper
       'create_application_dashboard'
     end
   end
-
 end

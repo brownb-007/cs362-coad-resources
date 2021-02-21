@@ -30,5 +30,4 @@ RSpec.describe DashboardHelper, type: :helper do
       expect(helper.dashboard_for(build(:user))).to eq("create_application_dashboard") 
     end
   end
-  
 end

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Deleting a Region', type: :feature do
   let(:admin) { admin = create(:user, :admin) }
   
-  it "Admin deletes a region" do
+  specify "Admin deletes a region" do
     region = Region.create(name: "fake region")
     log_in_as(admin)
     visit region_path(region)

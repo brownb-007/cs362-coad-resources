@@ -18,5 +18,4 @@ RSpec.describe 'Viewing Regions', type: :feature do
     expect(page.body).to have_text(region.name)
     expect(page.body).to have_link(ticket.id) 
   end
-  
 end

@@ -11,6 +11,6 @@ RSpec.describe 'Editing Region', type: :feature do
     expect(page.body).to have_text(region.name)
     fill_in "Name",	with: "Fake Edited Region"
     click_button "Save Changes"
-    expect(page.body).to have_content("Region successfully updated")
+    expect(page.body).to have_text("Region successfully updated")
   end
 end

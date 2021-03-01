@@ -16,6 +16,6 @@ RSpec.describe 'Viewing Regions', type: :feature do
     log_in_as(admin)
     visit region_path(region)
     expect(page.body).to have_text(region.name)
-    expect(page.body).to have_link(ticket.id) 
+    expect(page.body).to have_text("Tickets")
   end
 end

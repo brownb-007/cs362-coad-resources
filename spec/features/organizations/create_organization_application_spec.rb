@@ -23,7 +23,7 @@ RSpec.describe "Creating an Organization Application", type: :feature do
       fill_in "organization_phone", with: "8888888888"
       fill_in "organization_secondary_name", with: "Fake Secondary Name"
       fill_in "organization_secondary_phone", with: "9999999999"
-      fill_in "organization_email", with: 'test@mail.com'
+      fill_in "organization_email", with: "fake@mail.com"
       fill_in "organization_description", with: "Fake Description"
     	choose("organization_transportation_yes")
     	click_button "Apply"

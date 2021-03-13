@@ -17,7 +17,7 @@ RSpec.describe DashboardHelper, type: :helper do
 
   describe "#dashboard_for" do
     it "takes admin to admin dashboard" do
-			allow(@user).to receive(:admin?) { true }
+      allow(@user).to receive(:admin?) { true }
       expect(helper.dashboard_for(@user)).to eq("admin_dashboard") 
     end
 

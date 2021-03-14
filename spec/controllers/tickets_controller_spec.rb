@@ -99,6 +99,4 @@ RSpec.describe TicketsController, type: :controller do
       end
     end   
   end
-  
-  
 end

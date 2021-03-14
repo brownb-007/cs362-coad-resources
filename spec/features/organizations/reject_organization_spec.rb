@@ -7,10 +7,10 @@ RSpec.describe 'Rejecting an organization', type: :feature do
     specify "Admin rejects a submitted organization" do
       log_in_as(admin)
       visit organizations_path
-      click_on 'Pending'
+      click_on "Pending"
       visit organizations_path(organization)
-      click_on 'Reject'
-      expect(page).to have_text('Rejected')
+      click_on "Reject"
+      expect(page).to have_text("Rejected")
     end
   end
 end

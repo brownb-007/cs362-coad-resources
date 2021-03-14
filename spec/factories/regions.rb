@@ -5,6 +5,5 @@ FactoryBot.define do
     trait :unspecified do
       name { 'Unspecified' }
     end
-    
   end
 end

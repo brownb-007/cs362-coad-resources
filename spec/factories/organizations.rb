@@ -23,6 +23,5 @@ FactoryBot.define do
     trait :submitted do
       status { 2 }
     end
-    
   end
 end

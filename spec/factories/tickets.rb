@@ -23,6 +23,5 @@ FactoryBot.define do
     trait :has_organization do
       organization
     end
-
   end
 end
